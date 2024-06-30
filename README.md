@@ -33,7 +33,7 @@ VITE_APP_API_BASE_URL=https://wallet-backend-a8km.onrender.com
 ```bash
 npm run dev
 ```
-The server will start on http://localhost:3000.
+The application will start on http://localhost:5173.
 
 ## API Endpoints 
 
@@ -64,4 +64,91 @@ Response:
   }
 }
 ```
+
+### 2. Credit/Debit Amount
+
+- Endpoint: /api/transact/:walletId
+- Method: POST
+
+Request Body:
+
+```json
+{
+  "amount": 100.1234,
+  "description": "Deposit"
+}
+```
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "balance": 1100.2468,
+    "transactionId": "string"
+  }
+}
+```
+
+### 3. Fetch Transactions
+
+- Endpoint: /api/transactions
+- Method: GET
+
+Query Parameters:
+
+- walletId (required)
+- skip (optional, default: 0)
+- limit (optional, default: 10)
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": "string",
+      "walletId": "string",
+      "amount": 100.1234,
+      "balance": 1100.2468,
+      "description": "Deposit",
+      "date": "ISO Date String",
+      "type": "CREDIT"
+    },
+    ...
+  ]
+}
+```
+
+### 4. Get Wallet Details
+
+- Endpoint: /api/wallet/:id
+- Method: GET
+
+Response:
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": "string",
+    "balance": 1100.2468,
+    "name": "John Doe",
+    "date": "ISO Date String"
+  }
+}
+```
+
+## Code Structure
+``` markdown
+app.js: Entry point of the application.
+src/controllers: Contains the controller logic for handling API requests.
+src/models: Defines the MongoDB schemas and models.
+src/routes: Contains the route definitions.
+src/services: Contains the business logic for wallet operations.
+src/utils: Contains utility functions.
+```
+
 
