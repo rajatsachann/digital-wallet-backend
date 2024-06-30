@@ -135,7 +135,7 @@ Response:
   "data": {
     "id": "string",
     "balance": 1100.2468,
-    "name": "John Doe",
+    "name": "Rajat",
     "date": "ISO Date String"
   }
 }
