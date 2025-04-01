@@ -1,4 +1,4 @@
-# HighLevel Digital Wallet (Backend)
+# Digital Wallet (Backend)
 
 This is a Node.js backend service for a Wallet system, which supports the following functionalities:
 
